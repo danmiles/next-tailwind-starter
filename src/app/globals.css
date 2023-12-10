@@ -3,25 +3,39 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  /* Global color and fonts*/
+  --main-font: 'Inter', sans-serif;
+  --primary-color: #19aa06;
+  --secondary-color: #1a13f0;
+  --link-color: #13a200;
+  --hover-color: #11ddb1;
+  --font-color: #1b1717;
+  --text-dark: #1d1d1d;
+  --white-color: #ffffff;
+  --transition: all 0.3s ease;
+  --margin-page: 40px 0;
+  /* ==== Animate Css ==== */
+  /* this is delay animation for animate.css library 1s = normal, 0.5s = halt */
+  /* --animate-delay: 1s; */
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--text-color);
+  font-family: var(--main-font);
+  line-height: 1.6;
+  min-width: 320px;
+  position: relative;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+/* Global class */
+.link {
+  @apply text-[17px] text-link-clr hover:text-hover font-medium transition-all;
+}
+
+.btn-main {
+  @apply px-6 py-2 rounded-full text-white bg-prim-clr hover:bg-hover hover:text-font-clr transition-all;
 }
