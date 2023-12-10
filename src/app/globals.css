@@ -3,8 +3,10 @@
 @tailwind utilities;
 
 :root {
-  /* Global color and fonts*/
-  --main-font: 'Inter', sans-serif;
+  /* ==================== Fonts ==================== */
+  /* Fonts variables inside layout.tsx */
+  /* ==================== Colors ==================== */
+  /* This colors veriables for tailwind.config.ts */
   --primary-color: #19aa06;
   --secondary-color: #1a13f0;
   --link-color: #13a200;
@@ -21,7 +23,7 @@
 
 body {
   color: var(--text-color);
-  font-family: var(--main-font);
+  font-family: var(--inter-font);
   line-height: 1.6;
   min-width: 320px;
   position: relative;
