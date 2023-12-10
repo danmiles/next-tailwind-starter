@@ -23,9 +23,22 @@ const roboto_flex = Roboto_Flex({
 
 
 export const metadata: Metadata = {
-  title: 'Next.js Tailwind Starter',
-  description: 'Next.js Tailwind Starter',
+  title: 'Next.js 14- TailwindCSS Starter Template',
+  description: 'Next.js 14- TailwindCSS Starter Template',
+  openGraph: {
+    title: 'Next.js 14- TailwindCSS Starter Template',
+    description:
+      'Next.js 14- TailwindCSS Starter Template open graph descriptions for social media',
+    images: [
+      {
+        url: '/images/og-meta-img.jpg',
+        width: 1280,
+        height: 720,
+      },
+    ],
+  },
 };
+
 
 export default function RootLayout({
   children,
