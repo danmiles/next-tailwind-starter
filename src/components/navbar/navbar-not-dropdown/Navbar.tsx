@@ -52,7 +52,6 @@ export default function Navbar() {
   // Active link for current page
   const pathname = usePathname();
   // Navbar visibility
-  const [scrollPosition, setScrollPosition] = useState(0);
   const [prevScrollPosition, setPrevScrollPosition] = useState(0);
   const [navbarVisible, setNavbarVisible] = useState(true);
 
@@ -60,7 +59,6 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setScrollPosition(currentScrollY);
 
       if (currentScrollY > prevScrollPosition && navbarVisible) {
         setNavbarVisible(false);
@@ -97,7 +95,7 @@ export default function Navbar() {
                 alt="logo"
               />
             </Link>
-            <div className="lg:text-3xl md:text-2xl text-prim-clr text-xl font-semibold flex gap-[10px]">
+            <div className="xl:text-3xl md:text-2xl text-prim-clr text-xl font-semibold flex gap-[10px]">
               Next.js 14 - Tailwind
             </div>
           </div>

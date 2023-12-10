@@ -6,12 +6,12 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 // Links import from Navbar.tsx
-import { navbarLinks } from './NavbarDropdown';
+import { navbarLinksDropdown } from './NavbarDropdown';
 
 // Icons
 import { GoTriangleDown } from 'react-icons/go';
 
-import React from 'react'
+import React from 'react';
 
 export default function NavbarDropdownMobile() {
   // For active link
@@ -34,41 +34,52 @@ export default function NavbarDropdownMobile() {
       window.removeEventListener('keydown', handleEscape);
     };
   }, []);
+  // Disable body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+  }, [isOpen]);
 
   return (
     <nav className="relative lg:hidden block z-[999]">
-      <div className="">
-        <button
-          aria-label="Navbar mobile toggle button"
-          onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center justify-center p-0 z-20 bg-transparent"
-        >
-          {isOpen ? (
-            <Image
-              src="/images/navbar/menu-mobile__close.svg"
-              width={40}
-              height={40}
-              alt="menu"
-              className="z-20 md:w-[40px] md:h-[40px] w-[35px] h-[35px]"
-            />
-          ) : (
-            <Image
-              src="/images/navbar/menu-mobile.svg"
-              width={40}
-              height={40}
-              alt="menu"
-              className="z-20 md:w-[40px] md:h-[40px] w-[35px] h-[35px]"
-            />
-          )}
-        </button>
-      </div>
-
+      <button
+        aria-label="Open menu mobile button"
+        onClick={() => setIsOpen(true)}
+        className="flex items-center justify-center p-0 bg-transparent md:w-[40px] md:h-[40px] w-[35px] h-[35px]"
+      >
+        <Image
+          src="/images/navbar/menu-mobile.svg"
+          width={40}
+          height={40}
+          alt="menu"
+          className="md:w-[40px] md:h-[40px] w-[35px] h-[35px]"
+        />
+      </button>
       <div
         className={`fixed invisible translate-x-full top-[0] right-[0] z-10 [transition:all_0.3s_ease-in-out] ${
           isOpen ? '!visible !translate-x-[0]' : ''
         }`}
       >
         <ul className="bg-slate-600 [box-shadow:0_0_10px_rgba(0,_0,_0,_0.2)] w-[300px] h-screen flex gap-[15px] flex-col pt-[50px] pl-[15px] [transition:all_0.5s_ease-in-out]">
+          <div className="flex justify-end pr-5">
+            {' '}
+            <button
+              aria-label="Close menu mobile button"
+              onClick={() => setIsOpen(false)}
+              className=" md:w-[40px] md:h-[40px] w-[35px] h-[35px]  p-0 bg-transparent"
+            >
+              <Image
+                src="/images/navbar/menu-mobile__close.svg"
+                width={40}
+                height={40}
+                alt="menu"
+                className="md:w-[40px] md:h-[40px] w-[35px] h-[35px]"
+              />
+            </button>
+          </div>
           {/* Logo */}
           <div className="flex justify-center">
             <Link href="/">
@@ -82,8 +93,8 @@ export default function NavbarDropdownMobile() {
             </Link>
           </div>
           {/* Menu links */}
-          {navbarLinks.map((link) => {
-            return (          
+          {navbarLinksDropdown.map((link) => {
+            return (
               <li key={link.id}>
                 {link.dropdown ? (
                   <div
@@ -92,7 +103,11 @@ export default function NavbarDropdownMobile() {
                   >
                     <div className="text-[17px] font-medium text-white hover:text-hover transition-all flex items-center gap-1">
                       <span>{link.title}</span>
-                      <span className={`text-[18px] ${dropdown ? 'rotate-180' : ''}`}>
+                      <span
+                        className={`text-[18px] ${
+                          dropdown ? 'rotate-180' : ''
+                        }`}
+                      >
                         <GoTriangleDown />
                       </span>
                     </div>
@@ -133,6 +148,4 @@ export default function NavbarDropdownMobile() {
       </div>
     </nav>
   );
-};
-
-
+}

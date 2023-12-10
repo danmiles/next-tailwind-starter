@@ -17,7 +17,7 @@ type NavbarLink = {
   dropdown?: { id: number; title: string; url: string }[];
 };
 
-export const navbarLinks: NavbarLink[] = [
+export const navbarLinksDropdown: NavbarLink[] = [
   {
     id: 1,
     title: 'Home',
@@ -131,7 +131,7 @@ export default function NavbarDropdown() {
           {/* Logo end */}
           {/* Menu with dropdown start */}
           <ul className="lg:flex hidden gap-5 items-center">
-            {navbarLinks.map((link) => {
+            {navbarLinksDropdown.map((link) => {
               return (
                 <li key={link.id}>
                   {link.dropdown ? (
