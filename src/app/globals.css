@@ -41,3 +41,11 @@ body {
 .btn-main {
   @apply px-6 py-2 rounded-full text-white bg-prim-clr hover:bg-hover hover:text-font-clr transition-all;
 }
+
+.h1 {
+  @apply lg:text-6xl text-5xl font-bold text-font-clr;
+}
+
+.h2 {
+  @apply lg:text-4xl text-3xl font-bold text-font-clr;
+}

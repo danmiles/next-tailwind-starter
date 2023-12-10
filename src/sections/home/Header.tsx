@@ -2,12 +2,12 @@ import React from 'react';
 
 export default function Header() {
   return (
-    <section className="h-full">
+    <header>
       <div className="container">
-        <h1 className="lg:text-5xl md:text-3xl text-2xl text-center font-bold pt-[150px]">
-          Next.js 14 + Tailwind CSS 2 + TypeScript Starter
-        </h1>
+        <div className="flex items-center justify-center h-screen">
+          <h1 className="h1">Next.js 14 + Tailwind Css Starter</h1>
+        </div>
       </div>
-    </section>
+    </header>
   );
 }

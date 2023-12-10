@@ -5,7 +5,7 @@ import { Inter, Roboto_Flex } from 'next/font/google';
 import './globals.css';
 // ======= Components =======
 // Navbar
-import NavbarDropdown from '@/components/navbar/NavbarDropdown';
+import Navbar from '@/components/navbar/navbar-not-dropdown/Navbar';
 
 const inter = Inter({
   weight: ["400", "500", "600", "700"],
@@ -48,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${roboto_flex.variable}`}>
-        <NavbarDropdown />
+        <Navbar/>
         {children}
       </body>
     </html>
